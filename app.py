@@ -30,8 +30,8 @@ def get_db_connection():
 
 # --- Home Page ---
 @app.route('/')
-def home():
-    return render_template('home.html')
+def index():
+    return render_template('index.html')
 
 
 # --- Register ---
@@ -239,7 +239,7 @@ def cart():
 
     except Exception as e:
         flash(f"Error loading cart: {str(e)}", "danger")
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
     finally:
         conn.close()
 
@@ -492,7 +492,7 @@ def order_confirmation(order_id):
 
         if not order:
             flash("Order not found", "danger")
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
 
         # Normalize order_date to string
         order_date = order.order_date
@@ -524,7 +524,7 @@ def order_confirmation(order_id):
 
     except Exception as e:
         flash(f"Error loading order: {str(e)}", "danger")
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
     finally:
         conn.close()
 
@@ -653,3 +653,4 @@ def remove_from_cart():
 # --- Run App ---
 if __name__ == '__main__':
     app.run(debug=True)
+

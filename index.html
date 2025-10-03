@@ -306,16 +306,22 @@
         
         <!-- Navbar -->
         <nav class="navbar" id="navbar">
-            <div class="logo">
-                <a href="/">Zewa</a>
-            </div>
-            <div class="nav-links">
-                <a href="/shop">Shop</a>
-                <a href="/cart">Cart</a>
-                <a href="/login">Login</a>
-                <a href="/register">Signup</a>
-            </div>
-        </nav>
+    <div class="logo">
+        <a href="{{ url_for('index') }}">Zewa</a>
+    </div>
+    <div class="nav-links">
+        <a href="{{ url_for('shop') }}">Shop</a>
+        <a href="{{ url_for('cart') }}">Cart</a>
+
+        {% if 'user_email' in session %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Signup</a>
+        {% endif %}
+    </div>
+</nav>
+
         
         <!-- Centered Main Content -->
         <div class="content">
@@ -374,4 +380,5 @@
         }, 5000);
     </script>
 </body>
+
 </html>

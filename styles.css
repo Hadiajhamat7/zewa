@@ -1,0 +1,227 @@
+/* ======================
+   BASE RESETS & GLOBAL STYLES
+   ====================== */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif; /* Fallback font */
+}
+
+/* Remove default link underlines */
+a {
+  text-decoration: none !important;
+}
+
+/* ======================
+   NAVBAR (Corner Positioning)
+   ====================== */
+header.navbar {
+  display: flex !important;
+  justify-content: space-between !important; /* Forces items to left/right corners */
+  align-items: center !important;
+  padding: 1rem 2rem !important;
+  background: white !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  position: relative; /* Needed for absolute child elements */
+}
+
+.navbar-brand.logo {
+  font-family: 'Pacifico', cursive !important;
+  font-size: 1.8rem !important;
+  /* Left corner (default) */
+}
+
+/* Optional: Right-aligned nav items */
+.navbar-nav.ms-auto {
+  margin-left: auto !important; /* Pushes items to right */
+}
+
+/* ======================
+   HERO SECTION (Centered Content)
+   ====================== */
+.hero {
+  background: url('/static/background.jpg') center/cover no-repeat !important;
+  min-height: 80vh !important;
+  color: white !important;
+  display: flex !important;
+  justify-content: center !important; /* Horizontal center */
+  align-items: center !important; /* Vertical center */
+  text-align: center !important;
+  position: relative !important;
+}
+
+.hero::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Center-align hero content */
+.hero-content {
+  z-index: 1; /* Ensures text appears above overlay */
+  max-width: 800px;
+  padding: 2rem;
+}
+
+/* ======================
+   UTILITY CLASSES (Positioning Helpers)
+   ====================== */
+/* Corner positioning (for any element) */
+.top-left {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.bottom-left {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+.bottom-right {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* ======================
+   PRODUCT CARDS (Overrides)
+   ====================== */
+.product-card {
+  transition: transform 0.3s, box-shadow 0.3s !important;
+  border: none !important;
+  overflow: hidden !important;
+}
+.product-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+.product-image {
+  height: 250px !important;
+  object-fit: cover !important;
+  transition: transform 0.5s !important;
+}
+.product-card:hover .product-image {
+  transform: scale(1.05) !important;
+}
+
+/* ======================
+   BUTTONS (Overrides)
+   ====================== */
+.btn-main {
+  background-color: #fff !important;
+  color: #333 !important;
+  padding: 0.8rem 2rem !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+  transition: all 0.3s !important;
+  display: inline-block !important;
+}
+.btn-main:hover {
+  background-color: #333 !important;
+  color: #fff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ======================
+   RESPONSIVE FIXES
+   ====================== */
+@media (max-width: 768px) {
+  /* Stack hero content on small screens */
+  .hero-content {
+    padding: 1rem;
+  }
+  /* Optional: Stack navbar items */
+  header.navbar {
+    flex-direction: column;
+  }
+}
+
+.confirmation-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: 70vh;
+}
+
+.confirmation-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+}
+
+.thank-you {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    margin-bottom: 30px;
+}
+
+.order-summary {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.order-items {
+    margin-bottom: 30px;
+}
+
+.order-items ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-items li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-continue, .btn-home {
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-continue {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-home {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.btn-continue:hover {
+    background-color: #3e8e41;
+}
+
+.btn-home:hover {
+    background-color: #ddd;
+}
+
+.customer-care {
+    margin-top: 30px;
+    color: #666;
+}

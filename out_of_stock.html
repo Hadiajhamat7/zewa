@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Inventory Issues</h2>
+<p>Some items in your cart are no longer available:</p>
+<ul>
+    {% for item in items %}
+    <li>
+        {{ item.name }} - 
+        Requested: {{ item.requested }}, 
+        Available: {{ item.available }}
+    </li>
+    {% endfor %}
+</ul>
+<a href="/cart" class="btn btn-primary">Return to Cart</a>
+{% endblock %}
